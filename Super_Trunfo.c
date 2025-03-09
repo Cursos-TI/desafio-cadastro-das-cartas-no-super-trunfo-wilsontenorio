@@ -117,7 +117,7 @@ int main(){
     printf("Area em Km², Carta 1 venceu?  %d\n", kmArea > kmArea2);
     printf("PIB em Bilhoes de Reais, Carta 1 venceu?  %d\n", pib > pib2);
     printf("Pontos Turisticos, Carta 1 venceu? %d\n", pontosTuristicos > pontosTuristicos2);
-    printf("Densidade Populacional (hab/km²), Carta 2 venceu? %d\n", densidadePop < densidadePop2);
+    printf("Densidade Populacional (hab/km²), Carta 2 venceu? %d\n", densidadePop > densidadePop2);
     printf("PIB per capita em Reais, Carta 1 venceu?  %d\n", pibPerCap > pibPerCap2);
     printf("Super, Carta 1 venceu? %d",super_poder > super_poder2);
 }
