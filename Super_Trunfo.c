@@ -1,17 +1,15 @@
 #include <stdio.h>
 #include <string.h> // Incluida para poder usar strcspn
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
-
-int main() {
+int main(){
+    
     // Variáveis de ambas as cartas:
     int populacao, pontosTuristicos, populacao2, pontosTuristicos2;
     float kmArea, pib, kmArea2, pib2;
     char estado[3], carta[4], cidade[20], estado2[3], carta2[4], cidade2[20];
+
+    //Inclusão das variáveis solicitadas pelo nível Aventureiro
+    float densidadePop,pibPerCap,densidadePop2,pibPerCap2;
 
     // Input da primeira carta:
     printf("Dados para Carta 01: \n");
@@ -33,8 +31,14 @@ int main() {
     scanf("%d", &pontosTuristicos);
     getchar(); // Limpa o buffer do teclado após o último scanf
 
+    //Calculos do Nível aventureiro, efetuando já antes do calculo a conversão dos valores para o tipo Float a ponto de não darem problemas.
+    densidadePop = (float) populacao/kmArea; 
+    pibPerCap = (float) (pib*1000000000)/populacao; // Usando "*1000000000" para converter de Bilhoes para Reais
+
+
+
     // Input da Segunda carta:
-    printf("\n Dados para Carta 02: \n");
+    printf("Dados para Carta 02: \n");
     printf("Insira o Estado: ");
     scanf("%s", &estado2);
     printf("Código da Carta: ");
@@ -53,6 +57,11 @@ int main() {
     scanf("%d", &pontosTuristicos2);
     getchar(); // Limpa o buffer do teclado após o último scanf
 
+    //Calculos do Nível aventureiro, efetuando já antes do calculo a conversão dos valores para o tipo Float a ponto de não darem problemas.
+    densidadePop2 = (float) populacao2/kmArea2; 
+    pibPerCap2 = (float) (pib2*1000000000)/populacao2; //Usando "*1000000000" para converter de Bilhoes para Reais
+
+
     // Exibição primeira carta após inserção:
     printf(" \n \n"); // Usando uma quebra de linha dupla apenas para separar um pouco mais a leitura da exibição.
     printf("Primeira Carta: \n");
@@ -62,17 +71,19 @@ int main() {
     printf("Populacao: %d \n", populacao);
     printf("Area: %.2f Km² \n", kmArea);
     printf("PIB: %.2f Bilhoes de Reais \n", kmArea);
-    printf("Pontos Turisticos: %d \n \n", pontosTuristicos); // Usando 2 Quabras de Linhas para melhor visualização.
+    printf("Pontos Turisticos: %d \n", pontosTuristicos);
+    printf("Densidade Populacional: %.2f hab/km² \n", densidadePop);
+    printf("PIB per capita: %.2f Reais \n", pibPerCap);
 
     // Exibição segunda carta após inserção:
-    printf("Segunda Carta: \n");
+    printf("\nSegunda Carta: \n");
     printf("Carta: %s \n", carta2);
     printf("Estado: %s \n", estado2);
     printf("Cidade: %s \n", cidade2);
     printf("Populacao: %d \n", populacao2);
     printf("Area: %.2f Km² \n", kmArea2);
     printf("PIB: %.2f Bilhoes de Reais \n", kmArea2);
-    printf("Pontos Turisticos: %d", pontosTuristicos2);
-    
-    return 0;
+    printf("Pontos Turisticos: %d \n", pontosTuristicos2);
+    printf("Densidade Populacional: %.2f hab/km² \n", densidadePop2);
+    printf("PIB per capita: %.2f Reais \n", pibPerCap2);
 }
