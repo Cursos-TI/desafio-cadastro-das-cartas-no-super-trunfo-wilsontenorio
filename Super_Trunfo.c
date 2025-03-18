@@ -15,7 +15,7 @@ int main(){
     float super_poder, super_poder2; //Variávei de super poder para o nível mestre.
 
     // Input da primeira carta:
-    
+    // /* 
     printf("Dados para Carta 01: \n");
     printf("Insira o Estado: ");
     scanf("%s", &estado);
@@ -54,9 +54,9 @@ int main(){
     printf("Pontos Turisticos: ");
     scanf("%d", &pontosTuristicos2);
     getchar(); // Limpa o buffer do teclado após o último scanf
-    
+    // */
 
-         /* Para Fins de testes apenas (por preguiça de incluir dados a cada testes)
+        /* Para Fins de testes apenas (por preguiça de incluir dados a cada testes)
         strcpy(estado, "SP");
         strcpy(carta, "A01");
         strcpy(cidade, "SaoPaulo");
@@ -72,7 +72,7 @@ int main(){
         kmArea2 = 1200.25;
         pib2 = 300.50;
         pontosTuristicos2 = 30;
-         */
+        */
     
         
     //Calculos do Nível aventureiro, efetuando já antes do calculo a conversão dos valores para o tipo Float a ponto de não darem problemas.
@@ -112,15 +112,106 @@ int main(){
     printf("PIB per capita: %.2f Reais \n", pibPerCap2);
     printf("Super B: %.2f \n",super_poder2);
 
-    printf("\n\n"); // Apenas para quebra de linha e melhor visualização.
-
+    printf("\n\n");
+    //Variável para armazenar quantidade de pontos somados de cada carta
+    int pontoscarta = 0;
+    int pontoscarta2 =0; 
+    /* Cada carta ganhará um ponto para cada atributo que vencer, com isso será apresentada no final a que efetuou mais pontos */
+    
     printf("Efetuando comparação entre as duas cartas.\n");
+
+    printf("Atributo comparado: Populacao.\n");
+    printf("Carta 1: %s, %s: %u hab/km²\n", cidade,estado,populacao);
+    printf("Carta 2: %s, %s: %u hab/km²\n", cidade2,estado2,populacao2);
+    if( populacao > populacao2){
+        printf("Carta 01 (%s,%s) Venceu!\n",cidade,estado);
+        pontoscarta++;
+    }else{
+        printf("Carta 02 (%s,%s) Venceu!\n",cidade2,estado2);
+        pontoscarta2++;
+    }
+    printf("\n"); //Quebra Extra de Linha
+
+    printf("Atributo comparado: Area.\n");
+    printf("Carta 1: %s, %s: %.2f km²\n", cidade,estado,kmArea);
+    printf("Carta 2: %s, %s: %.2f km²\n", cidade2,estado2,kmArea2);
+    if( kmArea > kmArea2){
+        printf("Carta 01 (%s,%s) Venceu!\n",cidade,estado);
+        pontoscarta++;
+    }else{
+        printf("Carta 02 (%s,%s) Venceu!\n",cidade2,estado2);
+        pontoscarta2++;
+    }
+    printf("\n"); //Quebra Extra de Linha
+
+    printf("Atributo comparado: PIB.\n");
+    printf("Carta 1: %s, %s: %.2f Bilhoes de Reais\n", cidade,estado,pib);
+    printf("Carta 2: %s, %s: %.2f Bilhoes de Reais\n", cidade2,estado2,pib2);
+    if( pib > pib2){
+        printf("Carta 01 (%s,%s) Venceu!\n",cidade,estado);
+        pontoscarta++;
+    }else{
+        printf("Carta 02 (%s,%s) Venceu!\n",cidade2,estado2);
+        pontoscarta2++;
+    }
+    printf("\n"); //Quebra Extra de Linha
+
+    printf("Atributo comparado: Pontos Turisticos.\n");
+    printf("Carta 1: %s, %s: %d\n", cidade,estado,pontosTuristicos);
+    printf("Carta 2: %s, %s: %d\n", cidade2,estado2,pontosTuristicos2);
+    if( pontosTuristicos > pontosTuristicos2){
+        printf("Carta 01 (%s,%s) Venceu!\n",cidade,estado);
+        pontoscarta++;
+    }else{
+        printf("Carta 02 (%s,%s) Venceu!\n",cidade2,estado2);
+        pontoscarta2++;
+    }
+    printf("\n"); //Quebra Extra de Linha
+
     printf("Atributo comparado: Densidade Populacional.\n");
     printf("Carta 1: %s, %s: %.2f hab/km²\n", cidade,estado,densidadePop);
     printf("Carta 2: %s, %s: %.2f hab/km²\n", cidade2,estado2,densidadePop2);
     if( densidadePop2 > densidadePop){
         printf("Carta 01 (%s,%s) Venceu!\n",cidade,estado);
+        pontoscarta++;
     }else{
         printf("Carta 02 (%s,%s) Venceu!\n",cidade2,estado2);
+        pontoscarta2++;
     }
+    printf("\n"); //Quebra Extra de Linha
+
+    printf("Atributo comparado: PIB per Capita.\n");
+    printf("Carta 1: %s, %s: %.2f hab/km²\n", cidade,estado,pibPerCap);
+    printf("Carta 2: %s, %s: %.2f hab/km²\n", cidade2,estado2,pibPerCap2);
+    if( pibPerCap > pibPerCap2){
+        printf("Carta 01 (%s,%s) Venceu!\n",cidade,estado);
+        pontoscarta++;
+    }else{
+        printf("Carta 02 (%s,%s) Venceu!\n",cidade2,estado2);
+        pontoscarta2++;
+    }
+    printf("\n"); //Quebra Extra de Linha
+
+    printf("Atributo comparado: Super.\n");
+    printf("Carta 1: %s, %s: %.2f\n", cidade,estado,super_poder);
+    printf("Carta 2: %s, %s: %.2f\n", cidade2,estado2,super_poder2);
+    if( super_poder > super_poder2){
+        printf("Carta 01 (%s,%s) Venceu!\n",cidade,estado);
+        pontoscarta++;
+    }else{
+        printf("Carta 02 (%s,%s) Venceu!\n",cidade2,estado2);
+        pontoscarta2++;
+    }
+    printf("\n"); //Quebra Extra de Linha
+    if(pontoscarta>pontoscarta2){
+        printf("Carta 1: %s, %s, venceu com: %d pontos!\n",cidade,estado,pontoscarta);
+        printf("Carta 2 ficou com %d pontos",pontoscarta2);
+    }else if (pontoscarta==pontoscarta2)
+    {
+        printf("Houve um empate:\nCarta 1: %d Pontos\nCarta 2: %d Pontos",pontoscarta,pontoscarta2);
+    } else {
+        printf("Carta 2: %s, %s, venceu com: %d pontos!",cidade2,estado2,pontoscarta2);
+        printf("Carta 1 ficou com %d pontos",pontoscarta);
+    }
+    
 }
