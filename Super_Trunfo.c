@@ -34,25 +34,7 @@ int main(){
     printf("Pontos Turisticos: ");
     scanf("%d", &pontosTuristicos);
     getchar(); // Limpa o buffer do teclado após o último scanf
-    
-    /* Para Fins de testes apenas (por preguiça de incluir dados a cada testes)
-    strcpy(estado, "A");
-    strcpy(carta, "A01");
-    strcpy(cidade, "SaoPaulo");
-    populacao=12325000;
-    kmArea= 1521.11;
-    pib= 699.28;
-    pontosTuristicos= 50;
-
-    strcpy(estado2, "B");
-    strcpy(carta2, "B02");
-    strcpy(cidade2, "Rio de Janeiro");
-    populacao2 = 6748000;
-    kmArea2 = 1200.25;
-    pib2 = 300.50;
-    pontosTuristicos2 = 30;
-    */
-
+        
     // Input da Segunda carta:
     printf("Dados para Carta 02: \n");
     printf("Insira o Estado: ");
@@ -74,6 +56,25 @@ int main(){
     getchar(); // Limpa o buffer do teclado após o último scanf
     
 
+         /* Para Fins de testes apenas (por preguiça de incluir dados a cada testes)
+        strcpy(estado, "SP");
+        strcpy(carta, "A01");
+        strcpy(cidade, "SaoPaulo");
+        populacao=12325000;
+        kmArea= 1521.11;
+        pib= 699.28;
+        pontosTuristicos= 50;
+    
+        strcpy(estado2, "RJ");
+        strcpy(carta2, "B02");
+        strcpy(cidade2, "Rio de Janeiro");
+        populacao2 = 6748000;
+        kmArea2 = 1200.25;
+        pib2 = 300.50;
+        pontosTuristicos2 = 30;
+         */
+    
+        
     //Calculos do Nível aventureiro, efetuando já antes do calculo a conversão dos valores para o tipo Float a ponto de não darem problemas.
     densidadePop = (float) populacao/kmArea; 
     pibPerCap = (pib*1000000000)/populacao; // Usando "*1000000000" para converter de Bilhoes para Reais
@@ -111,13 +112,15 @@ int main(){
     printf("PIB per capita: %.2f Reais \n", pibPerCap2);
     printf("Super B: %.2f \n",super_poder2);
 
-    //Comparação de Cartas:
-    printf("\n\nComparação de Cartas: \n");
-    printf("Populacao, Carta 1 venceu? %d \n", populacao > populacao2);
-    printf("Area em Km², Carta 1 venceu?  %d\n", kmArea > kmArea2);
-    printf("PIB em Bilhoes de Reais, Carta 1 venceu?  %d\n", pib > pib2);
-    printf("Pontos Turisticos, Carta 1 venceu? %d\n", pontosTuristicos > pontosTuristicos2);
-    printf("Densidade Populacional (hab/km²), Carta 2 venceu? %d\n", densidadePop > densidadePop2);
-    printf("PIB per capita em Reais, Carta 1 venceu?  %d\n", pibPerCap > pibPerCap2);
-    printf("Super, Carta 1 venceu? %d",super_poder > super_poder2);
+    printf("\n\n"); // Apenas para quebra de linha e melhor visualização.
+
+    printf("Efetuando comparação entre as duas cartas.\n");
+    printf("Atributo comparado: Densidade Populacional.\n");
+    printf("Carta 1: %s, %s: %.2f hab/km²\n", cidade,estado,densidadePop);
+    printf("Carta 2: %s, %s: %.2f hab/km²\n", cidade2,estado2,densidadePop2);
+    if( densidadePop2 > densidadePop){
+        printf("Carta 01 (%s,%s) Venceu!\n",cidade,estado);
+    }else{
+        printf("Carta 02 (%s,%s) Venceu!\n",cidade2,estado2);
+    }
 }
